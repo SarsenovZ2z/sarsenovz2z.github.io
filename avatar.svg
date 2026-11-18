@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1b1b"/><stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <clipPath id="lenses"><path d="M140 200H372q14 0 9 15l-13 47q-4 14-20 14h-62q-16 0-20-14l-6-22h-8l-6 22q-4 14-20 14h-62q-16 0-20-14l-13-47q-5-15 9-15z"/></clipPath>
+  </defs>
+  <rect width="512" height="512" fill="#d4ff3a"/>
+  <g stroke="#0b0b0b" stroke-width="10" stroke-linejoin="round">
+    <!-- hoodie -->
+    <path d="M78 530q14-118 178-124 164 6 178 124z" fill="#0b0b0b"/>
+    <!-- head and tuft -->
+    <path d="M196 98l18-40 20 32 22-44 20 44 22-34 16 44z" fill="#3a2c24"/>
+    <ellipse cx="256" cy="252" rx="150" ry="162" fill="#3a2c24"/>
+    <!-- face -->
+    <path d="M256 160c70 0 118 30 118 74 0 22-14 34-20 50 26 22 22 92-98 98-120-6-124-76-98-98-6-16-20-28-20-50 0-44 48-74 118-74z" fill="#c99a6e"/>
+    <ellipse cx="256" cy="330" rx="84" ry="56" fill="#ddb48a"/>
+  </g>
+  <!-- nose and smirk -->
+  <ellipse cx="240" cy="314" rx="8" ry="6" fill="#0b0b0b"/>
+  <ellipse cx="272" cy="314" rx="8" ry="6" fill="#0b0b0b"/>
+  <path d="M212 352q46 18 92-8" fill="none" stroke="#0b0b0b" stroke-width="8" stroke-linecap="round"/>
+  <!-- shades -->
+  <path d="M140 200H372q14 0 9 15l-13 47q-4 14-20 14h-62q-16 0-20-14l-6-22h-8l-6 22q-4 14-20 14h-62q-16 0-20-14l-13-47q-5-15 9-15z" fill="url(#lens)" stroke="#0b0b0b" stroke-width="10" stroke-linejoin="round"/>
+  <g clip-path="url(#lenses)" opacity=".95">
+    <path d="M150 268l52-70h16l-52 70z" fill="#d4ff3a"/>
+    <path d="M176 268l52-70h7l-52 70z" fill="#ff2bd6"/>
+    <path d="M276 268l52-70h16l-52 70z" fill="#d4ff3a"/>
+    <path d="M302 268l52-70h7l-52 70z" fill="#ff2bd6"/>
+  </g>
+  <path d="M146 206H366" stroke="#d4ff3a" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  <!-- headphones -->
+  <path d="M96 252C96 52 416 52 416 252" fill="none" stroke="#0b0b0b" stroke-width="26" stroke-linecap="round"/>
+  <path d="M110 214C130 96 382 96 402 214" fill="none" stroke="#d4ff3a" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+  <rect x="62" y="206" width="66" height="104" rx="26" fill="#0b0b0b"/>
+  <rect x="384" y="206" width="66" height="104" rx="26" fill="#0b0b0b"/>
+  <rect x="78" y="226" width="34" height="64" rx="14" fill="none" stroke="#d4ff3a" stroke-width="6"/>
+  <rect x="400" y="226" width="34" height="64" rx="14" fill="none" stroke="#d4ff3a" stroke-width="6"/>
+  <!-- hoodie strings -->
+  <path d="M226 420v54M286 420v54" stroke="#d4ff3a" stroke-width="7" stroke-linecap="round"/>
+</svg>
