@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Нурдаулет Сарсенов — основатель ANYgroup, full-stack разработчик</title>
-  <meta name="description" content="Нурдаулет Сарсенов — основатель IT-студии ANYgroup в Алматы, full-stack разработчик с 2018 года. Сайты, приложения, интеграции и статьи о разработке для бизнеса.">
+  <meta name="description" content="Нурдаулет Сарсенов — основатель IT-студии ANYgroup в Алматы, full-stack разработчик с 2018 года. Статьи о сайтах, приложениях, интеграциях и продвижении для бизнеса в Казахстане.">
   <link rel="canonical" href="https://sarsenovz2z.github.io/">
+  <meta name="theme-color" content="#000000">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Нурдаулет Сарсенов — основатель ANYgroup">
   <meta property="og:description" content="Full-stack разработчик из Алматы. Сайты, приложения и интеграции для бизнеса в Казахстане.">
@@ -31,7 +32,7 @@
       "worksFor": { "@type": "Organization", "@id": "https://anygroup.kz/#organization", "name": "ANYgroup", "url": "https://anygroup.kz" },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Международный университет информационных технологий" },
       "award": "ACM-ICPC, четвертьфинал — 2 место (2019)",
-      "knowsAbout": ["Веб-разработка", "Мобильная разработка", "Laravel", "PHP", "Next.js", "React", "Vue.js", "Nuxt.js", "Flutter", "Интеграции платёжных сервисов", "Kafka", "ClickHouse", "Elasticsearch"],
+      "knowsAbout": ["Веб-разработка", "Мобильная разработка", "Go", "PHP", "Laravel", "TypeScript", "React", "Next.js", "Flutter", "SQL", "NoSQL", "Kafka", "Docker"],
       "sameAs": [
         "https://www.linkedin.com/in/sarsenovz2z",
         "https://github.com/SarsenovZ2Z",
@@ -49,148 +50,327 @@
       --muted: rgba(0, 0, 0, 0.62);
       --line: rgba(0, 0, 0, 0.12);
       --accent: #d4ff3a;
+      --ease: cubic-bezier(.2, .8, .2, 1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--fg);
       font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      overflow-x: hidden;
     }
     a { color: inherit; }
-    main { max-width: 760px; margin: 0 auto; padding: 56px 16px 72px; }
-    header { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
-    .avatar { width: 112px; height: 112px; border-radius: 50%; border: 3px solid var(--fg); flex: none; }
-    h1 { font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.03em; }
-    .role { margin-top: 8px; font-weight: 700; }
-    .role mark { background: var(--accent); padding: 2px 8px; border-radius: 999px; }
-    .lead { margin-top: 28px; font-size: 1.125rem; color: var(--muted); max-width: 640px; }
-    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .links a {
-      padding: 10px 16px; border: 2px solid var(--fg); border-radius: 999px;
-      font-weight: 700; text-decoration: none; transition: background .15s;
+    ::selection { background: var(--accent); color: var(--fg); }
+
+    /* Background: dotted grid, drifting blobs and a spotlight that follows the cursor */
+    .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .bg::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, .14) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 75%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 75%);
     }
-    .links a:hover, .links a:focus-visible { background: var(--accent); }
-    .links a.primary { background: var(--fg); color: var(--bg); }
-    .links a.primary:hover, .links a.primary:focus-visible { background: var(--accent); color: var(--fg); }
-    section { margin-top: 56px; }
-    h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; padding-bottom: 12px; border-bottom: 2px solid var(--fg); }
-    .note { margin-top: 12px; color: var(--muted); }
-    ul { list-style: none; }
-    .articles li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
-    .articles a { font-weight: 700; text-decoration: none; }
-    .articles a:hover, .articles a:focus-visible { text-decoration: underline; }
-    .articles time { flex: none; color: var(--muted); font-size: .875rem; white-space: nowrap; padding-top: 2px; }
-    .jobs li { padding: 14px 0; border-bottom: 1px solid var(--line); }
-    .jobs .top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .jobs strong { font-weight: 800; }
-    .jobs span, .jobs p { color: var(--muted); }
-    .jobs p { margin-top: 4px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .tags li { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: .9375rem; }
-    footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
-    @media (max-width: 560px) {
-      .articles li { flex-direction: column; gap: 2px; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; }
+    .blob.one { width: 460px; height: 460px; background: var(--accent); top: -160px; right: -120px; animation: drift 18s var(--ease) infinite alternate; }
+    .blob.two { width: 320px; height: 320px; background: #b6f0ff; top: 260px; left: -160px; opacity: .45; animation: drift 22s var(--ease) infinite alternate-reverse; }
+    .spot {
+      position: absolute; width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 255, 58, .35), transparent 65%);
+      transform: translate(var(--x, -999px), var(--y, -999px)) translate(-50%, -50%);
+      transition: transform .25s var(--ease);
+    }
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(-80px, 90px) scale(1.15); }
+    }
+
+    main { max-width: 820px; margin: 0 auto; padding: 72px 16px 80px; }
+
+    /* Hero */
+    .hero { display: grid; gap: 28px; }
+    .who { display: flex; gap: 20px; align-items: center; }
+    .avatar-wrap { position: relative; flex: none; width: 96px; height: 96px; }
+    .avatar-wrap::before {
+      content: ""; position: absolute; inset: -6px; border-radius: 50%;
+      background: conic-gradient(var(--accent), #000, var(--accent), #000, var(--accent));
+      animation: spin 6s linear infinite;
+    }
+    .avatar { position: relative; width: 96px; height: 96px; border-radius: 50%; border: 4px solid var(--bg); display: block; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    .status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 2px solid var(--fg); border-radius: 999px; font-weight: 700; font-size: .875rem; background: var(--bg); }
+    .status i { width: 8px; height: 8px; border-radius: 50%; background: #2fbf4a; box-shadow: 0 0 0 0 rgba(47, 191, 74, .6); animation: ping 2s infinite; }
+    @keyframes ping { 70% { box-shadow: 0 0 0 8px rgba(47, 191, 74, 0); } 100% { box-shadow: 0 0 0 0 rgba(47, 191, 74, 0); } }
+
+    h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: .95; font-weight: 900; letter-spacing: -0.045em; }
+    h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+    h1 .line span { display: inline-block; animation: rise .9s var(--ease) both; }
+    h1 .line:nth-child(2) span { animation-delay: .12s; }
+    @keyframes rise { from { transform: translateY(105%); } to { transform: translateY(0); } }
+    .hl { position: relative; white-space: nowrap; }
+    .hl::after {
+      content: ""; position: absolute; left: -4px; right: -4px; bottom: .08em; height: .32em; z-index: -1;
+      background: var(--accent); transform-origin: left; animation: mark .7s .7s var(--ease) both;
+    }
+    @keyframes mark { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    .role { font-size: 1.125rem; font-weight: 700; }
+    .role .sep { color: var(--muted); margin: 0 6px; }
+    .lead { font-size: 1.125rem; color: var(--muted); max-width: 640px; }
+    .lead a { color: var(--fg); font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+    .links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      position: relative; overflow: hidden; isolation: isolate;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border: 2px solid var(--fg); border-radius: 999px;
+      font-weight: 800; text-decoration: none; background: var(--bg);
+      transition: transform .2s var(--ease);
+    }
+    .btn::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; background: var(--accent);
+      transform: translateY(101%); transition: transform .3s var(--ease);
+    }
+    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
+    .btn:hover::before, .btn:focus-visible::before { transform: translateY(0); }
+    .btn.primary { background: var(--fg); color: var(--bg); }
+    .btn.primary:hover, .btn.primary:focus-visible { color: var(--fg); }
+    .btn svg { width: 16px; height: 16px; transition: transform .2s var(--ease); }
+    .btn:hover svg { transform: translate(2px, -2px); }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border: 2px solid var(--fg); border-radius: 20px; overflow: hidden; background: var(--bg); }
+    .stat { padding: 20px; }
+    .stat + .stat { border-left: 2px solid var(--fg); }
+    .stat b { display: block; font-size: clamp(1.75rem, 6vw, 2.75rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    .stat span { display: block; margin-top: 8px; color: var(--muted); font-size: .9375rem; line-height: 1.35; }
+    .stat:hover { background: var(--accent); }
+    .stat:hover span { color: var(--fg); }
+
+    /* Marquee */
+    .marquee { margin: 56px -16px 0; overflow: hidden; border-block: 2px solid var(--fg); background: var(--fg); color: var(--bg); }
+    .marquee-track { display: flex; width: max-content; animation: scroll 32s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee ul { display: flex; list-style: none; }
+    .marquee li { padding: 14px 22px; font-weight: 900; font-size: 1.25rem; letter-spacing: -0.01em; white-space: nowrap; display: flex; align-items: center; gap: 22px; }
+    .marquee li::after { content: "✦"; color: var(--accent); font-size: .875rem; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* Sections */
+    section { margin-top: 72px; }
+    h2 { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
+    h2 small { font-size: .875rem; font-weight: 700; color: var(--muted); letter-spacing: 0; }
+    .note { margin-top: 12px; color: var(--muted); max-width: 640px; }
+
+    .articles { list-style: none; margin-top: 24px; border-top: 2px solid var(--fg); counter-reset: n; }
+    .articles li { border-bottom: 1px solid var(--line); counter-increment: n; }
+    .articles a {
+      position: relative; isolation: isolate;
+      display: grid; grid-template-columns: 2.5rem 1fr auto; gap: 12px; align-items: baseline;
+      padding: 16px 8px; text-decoration: none;
+    }
+    .articles a::before {
+      content: counter(n, decimal-leading-zero); font-weight: 900; color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums;
+    }
+    .articles a::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; background: var(--accent);
+      transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+    }
+    .articles a:hover::after, .articles a:focus-visible::after { transform: scaleX(1); }
+    .articles .t { font-weight: 800; line-height: 1.35; transition: transform .25s var(--ease); }
+    .articles a:hover .t { transform: translateX(6px); }
+    .articles time { color: var(--muted); font-size: .875rem; white-space: nowrap; }
+    .articles a:hover time, .articles a:hover::before { color: var(--fg); }
+
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+    .card {
+      padding: 22px; border: 2px solid var(--fg); border-radius: 20px; background: var(--bg);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+    .card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--fg); }
+    .card .k { font-size: .8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .card h3 { margin-top: 8px; font-size: 1.25rem; font-weight: 900; line-height: 1.2; letter-spacing: -0.01em; }
+    .card p { margin-top: 8px; color: var(--muted); }
+    .card p a { color: var(--fg); font-weight: 700; }
+
+    footer { margin-top: 80px; padding-top: 20px; border-top: 2px solid var(--fg); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-weight: 700; }
+    footer a { text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Scroll reveal: content stays visible without JS */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 640px) {
+      main { padding-top: 48px; }
+      .stats { grid-template-columns: 1fr; }
+      .stat + .stat { border-left: 0; border-top: 2px solid var(--fg); }
+      .cards { grid-template-columns: 1fr; }
+      .articles a { grid-template-columns: 2rem 1fr; }
+      .articles time { grid-column: 2; }
+      .blob.one { width: 320px; height: 320px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; }
+      .spot { display: none; }
     }
   </style>
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <div class="bg" aria-hidden="true">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="spot"></div>
+  </div>
+
   <main>
-    <header>
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/35455027?v=4" alt="Нурдаулет Сарсенов" width="112" height="112">
-      <div>
-        <h1>Нурдаулет Сарсенов</h1>
-        <p class="role"><mark>Основатель ANYgroup</mark> · Full-stack разработчик · Алматы</p>
+    <header class="hero">
+      <div class="who">
+        <div class="avatar-wrap">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/35455027?v=4" alt="Нурдаулет Сарсенов" width="96" height="96">
+        </div>
+        <span class="status"><i></i>Алматы, Казахстан</span>
       </div>
+
+      <h1 aria-label="Нурдаулет Сарсенов">
+        <span class="line"><span>Нурдаулет</span></span>
+        <span class="line"><span><span class="hl">Сарсенов</span></span></span>
+      </h1>
+
+      <p class="role">Основатель ANYgroup<span class="sep">/</span>Full-stack разработчик</p>
+
+      <p class="lead">Делаю сайты, веб-платформы и мобильные приложения с 2018 года. В <a href="https://anygroup.kz">ANYgroup</a> мы помогаем компаниям в Казахстане продавать онлайн: сайты, интеграции с Kaspi и 1С, чат-боты и внедрение ИИ. А ещё я пишу о том, с чем приходят клиенты.</p>
+
+      <nav class="links" aria-label="Контакты">
+        <a class="btn primary" href="https://anygroup.kz">anygroup.kz <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+        <a class="btn" href="https://www.linkedin.com/in/sarsenovz2z" rel="me">LinkedIn <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+        <a class="btn" href="https://github.com/SarsenovZ2Z" rel="me">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+        <a class="btn" href="mailto:me@z2z.kz">me@z2z.kz</a>
+      </nav>
     </header>
 
-    <p class="lead">Разрабатываю сайты, веб-платформы и мобильные приложения с 2018 года. В <a href="https://anygroup.kz">ANYgroup</a> мы делаем сайты, интеграции с Kaspi и 1С, чат-ботов и внедряем ИИ для компаний в Казахстане. Здесь — мой опыт и статьи, которые я пишу для клиентов студии.</p>
+    <div class="stats reveal">
+      <div class="stat"><b data-count="8">8+</b><span>лет в разработке, с 2018 года</span></div>
+      <div class="stat"><b data-count="24">24</b><span>статей о сайтах, продажах и продвижении</span></div>
+      <div class="stat"><b>2 место</b><span>четвертьфинал ACM-ICPC, 2019</span></div>
+    </div>
 
-    <nav class="links" aria-label="Контакты">
-      <a class="primary" href="https://anygroup.kz">anygroup.kz</a>
-      <a href="https://www.linkedin.com/in/sarsenovz2z" rel="me">LinkedIn</a>
-      <a href="https://github.com/SarsenovZ2Z" rel="me">GitHub</a>
-      <a href="mailto:me@z2z.kz">me@z2z.kz</a>
-    </nav>
+    <div class="marquee reveal" aria-label="Технологии">
+      <div class="marquee-track">
+        <ul>
+          <li>Go</li><li>PHP</li><li>Laravel</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Flutter</li><li>SQL</li><li>NoSQL</li><li>Kafka</li><li>Docker</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>Go</li><li>PHP</li><li>Laravel</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Flutter</li><li>SQL</li><li>NoSQL</li><li>Kafka</li><li>Docker</li>
+        </ul>
+      </div>
+    </div>
 
-    <section aria-labelledby="articles">
-      <h2 id="articles">Статьи</h2>
-      <p class="note">Пишу о том, с чем приходят клиенты: сколько стоит сайт, как продавать онлайн в Казахстане, как попасть в поиск и в ответы нейросетей.</p>
+    <section class="reveal" aria-labelledby="articles">
+      <h2 id="articles">Статьи <small>на anygroup.kz</small></h2>
+      <p class="note">Сколько стоит сайт, как открыть интернет-магазин в Казахстане, как попасть в поиск и в ответы нейросетей — пишу о том, о чём спрашивают клиенты.</p>
       <ul class="articles">
-          <li><a href="https://anygroup.kz/publications/kak-popast-v-otvety-chatgpt-i-nejropoisk">Клиенты спрашивают ChatGPT, где купить. Как сделать, чтобы он советовал вашу компанию</a><time datetime="2026-11-18">18 ноября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/chto-takoe-geo">Что такое GEO и как компании попадают в ответы нейросетей</a><time datetime="2026-11-18">18 ноября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/kak-otkryt-internet-magazin-v-kazahstane">Как открыть интернет-магазин в Казахстане: ИП, касса, оплата, доставка и сколько это стоит</a><time datetime="2026-11-17">17 ноября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/vaibkoding-i-ii-v-razrabotke">Вайбкодинг и ИИ в разработке: где он помогает, а где опасен</a><time datetime="2026-11-12">12 ноября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/seo-prodvizhenie-v-almaty">SEO продвижение в Алматы: что входит в работу, сколько стоит и когда ждать результат</a><time datetime="2026-10-29">29 октября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/kak-vnedrit-ii-v-biznes">Как внедрить ИИ в бизнес: задачи, где он уже окупается, и где пока нет</a><time datetime="2026-10-08">8 октября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/sajt-est-zayavok-net">Сайт есть, заявок нет: 10 причин и как проверить каждую за вечер</a><time datetime="2026-09-17">17 сентября 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/ii-assistent-po-baze-znanij">ИИ-ассистент по базе знаний компании: как он работает и что для него подготовить</a><time datetime="2026-08-27">27 августа 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/redizajn-saita-bez-poteri-pozicij">Редизайн сайта: когда он действительно нужен и как не потерять позиции в поиске</a><time datetime="2026-08-06">6 августа 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/integraciya-sajta-s-kaspi">Сайт и Kaspi: как связать интернет-магазин, Kaspi Магазин и оплату</a><time datetime="2026-07-16">16 июля 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/kak-vybrat-tip-saita">Какой сайт нужен бизнесу: лендинг, визитка, корпоративный сайт или магазин</a><time datetime="2026-07-03">3 июля 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/lokalnoe-seo-2gis-yandeks-google">Как попасть в 2ГИС, Яндекс Карты и Google Maps: локальное SEO в Казахстане</a><time datetime="2026-06-25">25 июня 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/whatsapp-business-api">WhatsApp Business API: чем отличается от обычного WhatsApp и когда он нужен</a><time datetime="2026-06-11">11 июня 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/cifrovizaciya-malogo-biznesa">Цифровизация малого бизнеса: с чего начать и в каком порядке</a><time datetime="2026-05-28">28 мая 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/integraciya-sajta-s-1s">Интеграция сайта и CRM с 1С: как настроить обмен данными и не утонуть в ошибках</a><time datetime="2026-05-14">14 мая 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/lending-ili-mnogostranichnyj-sajt-dlya-reklamy">Лендинг или многостраничный сайт для рекламы: что лучше приводит заявки</a><time datetime="2026-04-23">23 апреля 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/prototip-sajta">Что такое прототип сайта и почему с него стоит начинать</a><time datetime="2026-04-09">9 апреля 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/tehnicheskoe-zadanie-na-sajt">Как написать техническое задание на сайт или приложение, если вы не программист</a><time datetime="2026-03-27">27 марта 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/tilda-wordpress-ili-razrabotka">Tilda, WordPress или своя разработка: что выбрать для сайта компании</a><time datetime="2026-03-12">12 марта 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/kak-uskorit-sait">Медленный сайт теряет клиентов: как проверить скорость и что с ней делать</a><time datetime="2026-03-04">4 марта 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/skolko-stoit-mobilnoe-prilozhenie">Сколько стоит мобильное приложение и как не переплатить</a><time datetime="2026-02-19">19 февраля 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/crm-dlya-malogo-biznesa">CRM для малого бизнеса: зачем нужна и как внедрить без хаоса</a><time datetime="2026-02-10">10 февраля 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/chat-bot-dlya-biznesa">Чат-бот для бизнеса в WhatsApp и Telegram: что умеет и как внедрить</a><time datetime="2026-01-29">29 января 2026</time></li>
-          <li><a href="https://anygroup.kz/publications/skolko-stoit-sait-v-almaty">Сколько стоит сайт в Алматы и как сравнивать предложения студий</a><time datetime="2026-01-20">20 января 2026</time></li>
+        <li><a href="https://anygroup.kz/publications/kak-popast-v-otvety-chatgpt-i-nejropoisk"><span class="t">Клиенты спрашивают ChatGPT, где купить. Как сделать, чтобы он советовал вашу компанию</span><time datetime="2026-11-18">18 ноября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/chto-takoe-geo"><span class="t">Что такое GEO и как компании попадают в ответы нейросетей</span><time datetime="2026-11-18">18 ноября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/kak-otkryt-internet-magazin-v-kazahstane"><span class="t">Как открыть интернет-магазин в Казахстане: ИП, касса, оплата, доставка и сколько это стоит</span><time datetime="2026-11-17">17 ноября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/vaibkoding-i-ii-v-razrabotke"><span class="t">Вайбкодинг и ИИ в разработке: где он помогает, а где опасен</span><time datetime="2026-11-12">12 ноября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/seo-prodvizhenie-v-almaty"><span class="t">SEO продвижение в Алматы: что входит в работу, сколько стоит и когда ждать результат</span><time datetime="2026-10-29">29 октября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/kak-vnedrit-ii-v-biznes"><span class="t">Как внедрить ИИ в бизнес: задачи, где он уже окупается, и где пока нет</span><time datetime="2026-10-08">8 октября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/sajt-est-zayavok-net"><span class="t">Сайт есть, заявок нет: 10 причин и как проверить каждую за вечер</span><time datetime="2026-09-17">17 сентября 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/ii-assistent-po-baze-znanij"><span class="t">ИИ-ассистент по базе знаний компании: как он работает и что для него подготовить</span><time datetime="2026-08-27">27 августа 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/redizajn-saita-bez-poteri-pozicij"><span class="t">Редизайн сайта: когда он действительно нужен и как не потерять позиции в поиске</span><time datetime="2026-08-06">6 августа 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/integraciya-sajta-s-kaspi"><span class="t">Сайт и Kaspi: как связать интернет-магазин, Kaspi Магазин и оплату</span><time datetime="2026-07-16">16 июля 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/kak-vybrat-tip-saita"><span class="t">Какой сайт нужен бизнесу: лендинг, визитка, корпоративный сайт или магазин</span><time datetime="2026-07-03">3 июля 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/lokalnoe-seo-2gis-yandeks-google"><span class="t">Как попасть в 2ГИС, Яндекс Карты и Google Maps: локальное SEO в Казахстане</span><time datetime="2026-06-25">25 июня 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/whatsapp-business-api"><span class="t">WhatsApp Business API: чем отличается от обычного WhatsApp и когда он нужен</span><time datetime="2026-06-11">11 июня 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/cifrovizaciya-malogo-biznesa"><span class="t">Цифровизация малого бизнеса: с чего начать и в каком порядке</span><time datetime="2026-05-28">28 мая 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/integraciya-sajta-s-1s"><span class="t">Интеграция сайта и CRM с 1С: как настроить обмен данными и не утонуть в ошибках</span><time datetime="2026-05-14">14 мая 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/lending-ili-mnogostranichnyj-sajt-dlya-reklamy"><span class="t">Лендинг или многостраничный сайт для рекламы: что лучше приводит заявки</span><time datetime="2026-04-23">23 апреля 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/prototip-sajta"><span class="t">Что такое прототип сайта и почему с него стоит начинать</span><time datetime="2026-04-09">9 апреля 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/tehnicheskoe-zadanie-na-sajt"><span class="t">Как написать техническое задание на сайт или приложение, если вы не программист</span><time datetime="2026-03-27">27 марта 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/tilda-wordpress-ili-razrabotka"><span class="t">Tilda, WordPress или своя разработка: что выбрать для сайта компании</span><time datetime="2026-03-12">12 марта 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/kak-uskorit-sait"><span class="t">Медленный сайт теряет клиентов: как проверить скорость и что с ней делать</span><time datetime="2026-03-04">4 марта 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/skolko-stoit-mobilnoe-prilozhenie"><span class="t">Сколько стоит мобильное приложение и как не переплатить</span><time datetime="2026-02-19">19 февраля 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/crm-dlya-malogo-biznesa"><span class="t">CRM для малого бизнеса: зачем нужна и как внедрить без хаоса</span><time datetime="2026-02-10">10 февраля 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/chat-bot-dlya-biznesa"><span class="t">Чат-бот для бизнеса в WhatsApp и Telegram: что умеет и как внедрить</span><time datetime="2026-01-29">29 января 2026</time></a></li>
+        <li><a href="https://anygroup.kz/publications/skolko-stoit-sait-v-almaty"><span class="t">Сколько стоит сайт в Алматы и как сравнивать предложения студий</span><time datetime="2026-01-20">20 января 2026</time></a></li>
       </ul>
     </section>
 
-    <section aria-labelledby="experience">
-      <h2 id="experience">Опыт</h2>
-      <ul class="jobs">
-        <li>
-          <div class="top"><strong>ANYgroup — основатель</strong><span>Алматы</span></div>
-          <p>IT-студия: сайты, мобильные приложения, автоматизация бизнеса, SEO и внедрение ИИ.</p>
-        </li>
-        <li>
-          <div class="top"><strong>Spektr — full-stack разработчик</strong><span>с августа 2023</span></div>
-          <p>Разработка и поддержка веб-платформ на Laravel, Nuxt, Kafka и ClickHouse.</p>
-        </li>
-        <li>
-          <div class="top"><strong>Фриланс — full-stack разработчик</strong><span>февраль — май 2023</span></div>
-          <p>Мобильное приложение для интернет-магазина Skiny на Flutter и Firebase; сайты Standup Asia, FizMat и <a href="https://ivyshop.kz">IVY</a> на Next.js.</p>
-        </li>
-        <li>
-          <div class="top"><strong>SmartLab — full-stack разработчик</strong><span>март — октябрь 2022</span></div>
-          <p>Экономические расчёты и визуализация больших статистических данных. Ускорил ключевой скрипт с нескольких часов до пары минут.</p>
-        </li>
-        <li>
-          <div class="top"><strong>Brandstudio — full-stack разработчик</strong><span>сентябрь 2018 — январь 2022</span></div>
-          <p>Сайт онлайн-страхования транспорта, интеграции с платёжными сервисами, Instagram Graph API и Telegram API.</p>
-        </li>
-      </ul>
+    <section class="reveal" aria-labelledby="about">
+      <h2 id="about">Обо мне</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="k">Сейчас</div>
+          <h3>Основатель ANYgroup</h3>
+          <p>IT-студия в Алматы: сайты, мобильные приложения, автоматизация бизнеса, SEO и внедрение ИИ.</p>
+        </div>
+        <div class="card">
+          <div class="k">Образование</div>
+          <h3>Бакалавр компьютерных наук</h3>
+          <p>Международный университет информационных технологий, Алматы, 2016–2020.</p>
+        </div>
+        <div class="card">
+          <div class="k">Олимпиады</div>
+          <h3>ACM-ICPC, 2 место в четвертьфинале</h3>
+          <p>Профили: <a href="https://codeforces.com/profile/Z2z" rel="me">Codeforces</a>, <a href="https://leetcode.com/sarsenovZ2z/" rel="me">LeetCode</a>, <a href="https://www.hackerrank.com/profile/z2z01" rel="me">HackerRank</a>.</p>
+        </div>
+        <div class="card">
+          <div class="k">Связаться</div>
+          <h3>Обсудить проект</h3>
+          <p>Пишите на <a href="mailto:me@z2z.kz">me@z2z.kz</a> или оставьте заявку на <a href="https://anygroup.kz">anygroup.kz</a>.</p>
+        </div>
+      </div>
     </section>
 
-    <section aria-labelledby="skills">
-      <h2 id="skills">Технологии</h2>
-      <ul class="tags">
-        <li>PHP</li><li>Laravel</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Vue.js</li><li>Nuxt.js</li><li>Dart</li><li>Flutter</li><li>Tailwind</li><li>PostgreSQL</li><li>MySQL</li><li>ClickHouse</li><li>Elasticsearch</li><li>Redis</li><li>Kafka</li><li>Docker</li><li>Linux</li><li>Nginx</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="education">
-      <h2 id="education">Образование и достижения</h2>
-      <ul class="jobs">
-        <li>
-          <div class="top"><strong>Международный университет информационных технологий</strong><span>2016 — 2020</span></div>
-          <p>Бакалавр компьютерных наук, Алматы.</p>
-        </li>
-        <li>
-          <div class="top"><strong>ACM-ICPC, четвертьфинал — 2 место</strong><span>2019</span></div>
-          <p>Профили по спортивному программированию: <a href="https://codeforces.com/profile/Z2z" rel="me">Codeforces</a>, <a href="https://leetcode.com/sarsenovZ2z/" rel="me">LeetCode</a>, <a href="https://www.hackerrank.com/profile/z2z01" rel="me">HackerRank</a>.</p>
-        </li>
-      </ul>
-    </section>
-
-    <footer>Нурдаулет Сарсенов · <a href="https://anygroup.kz">ANYgroup</a>, Алматы</footer>
+    <footer>
+      <span>Нурдаулет Сарсенов</span>
+      <a href="https://anygroup.kz">ANYgroup · Алматы</a>
+    </footer>
   </main>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      var items = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window && !reduce) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+            e.target.querySelectorAll("[data-count]").forEach(countUp);
+          });
+        }, { threshold: 0.12 });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("in"); });
+      }
+
+      function countUp(el) {
+        var to = +el.dataset.count, suffix = el.textContent.replace(/[0-9]/g, ""), start = null;
+        function step(t) {
+          if (!start) start = t;
+          var p = Math.min((t - start) / 1200, 1);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      var spot = document.querySelector(".spot");
+      if (!reduce && window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener("pointermove", function (e) {
+          spot.style.setProperty("--x", e.clientX + "px");
+          spot.style.setProperty("--y", e.clientY + "px");
+        }, { passive: true });
+      }
+    })();
+  </script>
 </body>
 </html>
