@@ -1,43 +1,87 @@
-<html>
+<!doctype html>
+<html lang="ru">
 <head>
-    <title>hello</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SarsenovZ2Z</title>
+    <meta name="description" content="Личная страница SarsenovZ2Z">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #111;
+            --muted: #666;
+            --accent: #2563eb;
+            --card: #fff;
+            --border: #e5e5e5;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --fg: #e6edf3;
+                --muted: #8b949e;
+                --accent: #58a6ff;
+                --card: #161b22;
+                --border: #30363d;
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            min-width: 100vw;
-            min-width: 100vh;
-            background-color: blue;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            background: var(--bg);
+            color: var(--fg);
+            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         }
-        #log {
-            color: white;
+        main {
+            width: 100%;
+            max-width: 560px;
+            text-align: center;
         }
+        .avatar {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            margin-bottom: 20px;
+        }
+        h1 { font-size: 2rem; letter-spacing: -0.02em; }
+        p { color: var(--muted); margin-top: 8px; }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        nav a {
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--fg);
+            text-decoration: none;
+            transition: border-color .15s, color .15s;
+        }
+        nav a:hover { border-color: var(--accent); color: var(--accent); }
+        footer { margin-top: 48px; font-size: .875rem; color: var(--muted); }
     </style>
 </head>
 <body>
-    <div id="log"></div>
+    <main>
+        <img class="avatar" src="https://github.com/SarsenovZ2Z.png" alt="Аватар SarsenovZ2Z" width="112" height="112">
+        <h1>Nurdaulet Sarsenov</h1>
+        <p>Разработчик</p>
+        <nav>
+            <a href="https://github.com/SarsenovZ2Z">GitHub</a>
+        </nav>
+        <footer>&copy; <span id="year">2026</span> SarsenovZ2Z</footer>
+    </main>
     <script>
-        var log = document.getElementById('log');
-
-        const print = function(message) {
-            var p = document.createElement('p');
-            p.innerHTML = message;
-            log.prepend(p);
-        }
-
-        document.addEventListener("webkitvisibilitychange", function(e) {
-            print('visibilitychange');
-        });
-        document.addEventListener("keydown", function(e) {
-            print('Keyboard: ' + e.key);
-        });
-        window.addEventListener("resize", function() {
-            print('Resize');
-        });
-        window.addEventListener("blur", function() {
-            print('Blur');
-        });
-        window.addEventListener("focus", function() {
-            print('Focus');
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
