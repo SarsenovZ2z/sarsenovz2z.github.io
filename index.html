@@ -148,6 +148,8 @@
     @keyframes rise { from { transform: translateY(105%); } to { transform: translateY(0); } }
     h1 .ch { display: inline-block; transition: transform .3s var(--ease), color .15s; }
     h1 .ch:hover { transform: translateY(-.1em) skewX(-12deg); color: var(--accent); }
+    /* On the lime plate the letters stay black and get a magenta glitch shadow instead */
+    h1 .hl .ch:hover { color: #000; text-shadow: .06em .06em 0 #ff2bd6; }
     .glitch { position: relative; display: inline-block; }
     .glitch::before, .glitch::after {
       content: attr(data-text); position: absolute; inset: 0; pointer-events: none;
