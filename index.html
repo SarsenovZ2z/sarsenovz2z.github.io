@@ -1,87 +1,196 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SarsenovZ2Z</title>
-    <meta name="description" content="Личная страница SarsenovZ2Z">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    <style>
-        :root {
-            --bg: #fafafa;
-            --fg: #111;
-            --muted: #666;
-            --accent: #2563eb;
-            --card: #fff;
-            --border: #e5e5e5;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0d1117;
-                --fg: #e6edf3;
-                --muted: #8b949e;
-                --accent: #58a6ff;
-                --card: #161b22;
-                --border: #30363d;
-            }
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px 16px;
-            background: var(--bg);
-            color: var(--fg);
-            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        }
-        main {
-            width: 100%;
-            max-width: 560px;
-            text-align: center;
-        }
-        .avatar {
-            width: 112px;
-            height: 112px;
-            border-radius: 50%;
-            border: 2px solid var(--border);
-            margin-bottom: 20px;
-        }
-        h1 { font-size: 2rem; letter-spacing: -0.02em; }
-        p { color: var(--muted); margin-top: 8px; }
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 28px;
-        }
-        nav a {
-            padding: 10px 18px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--card);
-            color: var(--fg);
-            text-decoration: none;
-            transition: border-color .15s, color .15s;
-        }
-        nav a:hover { border-color: var(--accent); color: var(--accent); }
-        footer { margin-top: 48px; font-size: .875rem; color: var(--muted); }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Нурдаулет Сарсенов — основатель ANYgroup, full-stack разработчик</title>
+  <meta name="description" content="Нурдаулет Сарсенов — основатель IT-студии ANYgroup в Алматы, full-stack разработчик с 2018 года. Сайты, приложения, интеграции и статьи о разработке для бизнеса.">
+  <link rel="canonical" href="https://sarsenovz2z.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Нурдаулет Сарсенов — основатель ANYgroup">
+  <meta property="og:description" content="Full-stack разработчик из Алматы. Сайты, приложения и интеграции для бизнеса в Казахстане.">
+  <meta property="og:url" content="https://sarsenovz2z.github.io/">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/35455027?v=4">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23d4ff3a'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='900' text-anchor='middle'>НС</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://sarsenovz2z.github.io/",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://sarsenovz2z.github.io/#person",
+      "name": "Нурдаулет Сарсенов",
+      "alternateName": "Nurdaulet Sarsenov",
+      "jobTitle": "Основатель",
+      "description": "Основатель IT-студии ANYgroup, full-stack разработчик.",
+      "image": "https://avatars.githubusercontent.com/u/35455027?v=4",
+      "email": "mailto:me@z2z.kz",
+      "address": { "@type": "PostalAddress", "addressLocality": "Алматы", "addressCountry": "KZ" },
+      "worksFor": { "@type": "Organization", "@id": "https://anygroup.kz/#organization", "name": "ANYgroup", "url": "https://anygroup.kz" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Международный университет информационных технологий" },
+      "award": "ACM-ICPC, четвертьфинал — 2 место (2019)",
+      "knowsAbout": ["Веб-разработка", "Мобильная разработка", "Laravel", "PHP", "Next.js", "React", "Vue.js", "Nuxt.js", "Flutter", "Интеграции платёжных сервисов", "Kafka", "ClickHouse", "Elasticsearch"],
+      "sameAs": [
+        "https://www.linkedin.com/in/sarsenovz2z",
+        "https://github.com/SarsenovZ2Z",
+        "https://codeforces.com/profile/Z2z",
+        "https://leetcode.com/sarsenovZ2z/",
+        "https://www.hackerrank.com/profile/z2z01"
+      ]
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #000000;
+      --muted: rgba(0, 0, 0, 0.62);
+      --line: rgba(0, 0, 0, 0.12);
+      --accent: #d4ff3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    a { color: inherit; }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 16px 72px; }
+    header { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .avatar { width: 112px; height: 112px; border-radius: 50%; border: 3px solid var(--fg); flex: none; }
+    h1 { font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.03em; }
+    .role { margin-top: 8px; font-weight: 700; }
+    .role mark { background: var(--accent); padding: 2px 8px; border-radius: 999px; }
+    .lead { margin-top: 28px; font-size: 1.125rem; color: var(--muted); max-width: 640px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .links a {
+      padding: 10px 16px; border: 2px solid var(--fg); border-radius: 999px;
+      font-weight: 700; text-decoration: none; transition: background .15s;
+    }
+    .links a:hover, .links a:focus-visible { background: var(--accent); }
+    .links a.primary { background: var(--fg); color: var(--bg); }
+    .links a.primary:hover, .links a.primary:focus-visible { background: var(--accent); color: var(--fg); }
+    section { margin-top: 56px; }
+    h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; padding-bottom: 12px; border-bottom: 2px solid var(--fg); }
+    .note { margin-top: 12px; color: var(--muted); }
+    ul { list-style: none; }
+    .articles li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .articles a { font-weight: 700; text-decoration: none; }
+    .articles a:hover, .articles a:focus-visible { text-decoration: underline; }
+    .articles time { flex: none; color: var(--muted); font-size: .875rem; white-space: nowrap; padding-top: 2px; }
+    .jobs li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .jobs .top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .jobs strong { font-weight: 800; }
+    .jobs span, .jobs p { color: var(--muted); }
+    .jobs p { margin-top: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tags li { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: .9375rem; }
+    footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+    @media (max-width: 560px) {
+      .articles li { flex-direction: column; gap: 2px; }
+    }
+  </style>
 </head>
 <body>
-    <main>
-        <img class="avatar" src="https://github.com/SarsenovZ2Z.png" alt="Аватар SarsenovZ2Z" width="112" height="112">
-        <h1>Nurdaulet Sarsenov</h1>
-        <p>Разработчик</p>
-        <nav>
-            <a href="https://github.com/SarsenovZ2Z">GitHub</a>
-        </nav>
-        <footer>&copy; <span id="year">2026</span> SarsenovZ2Z</footer>
-    </main>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <main>
+    <header>
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/35455027?v=4" alt="Нурдаулет Сарсенов" width="112" height="112">
+      <div>
+        <h1>Нурдаулет Сарсенов</h1>
+        <p class="role"><mark>Основатель ANYgroup</mark> · Full-stack разработчик · Алматы</p>
+      </div>
+    </header>
+
+    <p class="lead">Разрабатываю сайты, веб-платформы и мобильные приложения с 2018 года. В <a href="https://anygroup.kz">ANYgroup</a> мы делаем сайты, интеграции с Kaspi и 1С, чат-ботов и внедряем ИИ для компаний в Казахстане. Здесь — мой опыт и статьи, которые я пишу для клиентов студии.</p>
+
+    <nav class="links" aria-label="Контакты">
+      <a class="primary" href="https://anygroup.kz">anygroup.kz</a>
+      <a href="https://www.linkedin.com/in/sarsenovz2z" rel="me">LinkedIn</a>
+      <a href="https://github.com/SarsenovZ2Z" rel="me">GitHub</a>
+      <a href="mailto:me@z2z.kz">me@z2z.kz</a>
+    </nav>
+
+    <section aria-labelledby="articles">
+      <h2 id="articles">Статьи</h2>
+      <p class="note">Пишу о том, с чем приходят клиенты: сколько стоит сайт, как продавать онлайн в Казахстане, как попасть в поиск и в ответы нейросетей.</p>
+      <ul class="articles">
+          <li><a href="https://anygroup.kz/publications/kak-popast-v-otvety-chatgpt-i-nejropoisk">Клиенты спрашивают ChatGPT, где купить. Как сделать, чтобы он советовал вашу компанию</a><time datetime="2026-11-18">18 ноября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/chto-takoe-geo">Что такое GEO и как компании попадают в ответы нейросетей</a><time datetime="2026-11-18">18 ноября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/kak-otkryt-internet-magazin-v-kazahstane">Как открыть интернет-магазин в Казахстане: ИП, касса, оплата, доставка и сколько это стоит</a><time datetime="2026-11-17">17 ноября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/vaibkoding-i-ii-v-razrabotke">Вайбкодинг и ИИ в разработке: где он помогает, а где опасен</a><time datetime="2026-11-12">12 ноября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/seo-prodvizhenie-v-almaty">SEO продвижение в Алматы: что входит в работу, сколько стоит и когда ждать результат</a><time datetime="2026-10-29">29 октября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/kak-vnedrit-ii-v-biznes">Как внедрить ИИ в бизнес: задачи, где он уже окупается, и где пока нет</a><time datetime="2026-10-08">8 октября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/sajt-est-zayavok-net">Сайт есть, заявок нет: 10 причин и как проверить каждую за вечер</a><time datetime="2026-09-17">17 сентября 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/ii-assistent-po-baze-znanij">ИИ-ассистент по базе знаний компании: как он работает и что для него подготовить</a><time datetime="2026-08-27">27 августа 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/redizajn-saita-bez-poteri-pozicij">Редизайн сайта: когда он действительно нужен и как не потерять позиции в поиске</a><time datetime="2026-08-06">6 августа 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/integraciya-sajta-s-kaspi">Сайт и Kaspi: как связать интернет-магазин, Kaspi Магазин и оплату</a><time datetime="2026-07-16">16 июля 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/kak-vybrat-tip-saita">Какой сайт нужен бизнесу: лендинг, визитка, корпоративный сайт или магазин</a><time datetime="2026-07-03">3 июля 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/lokalnoe-seo-2gis-yandeks-google">Как попасть в 2ГИС, Яндекс Карты и Google Maps: локальное SEO в Казахстане</a><time datetime="2026-06-25">25 июня 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/whatsapp-business-api">WhatsApp Business API: чем отличается от обычного WhatsApp и когда он нужен</a><time datetime="2026-06-11">11 июня 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/cifrovizaciya-malogo-biznesa">Цифровизация малого бизнеса: с чего начать и в каком порядке</a><time datetime="2026-05-28">28 мая 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/integraciya-sajta-s-1s">Интеграция сайта и CRM с 1С: как настроить обмен данными и не утонуть в ошибках</a><time datetime="2026-05-14">14 мая 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/lending-ili-mnogostranichnyj-sajt-dlya-reklamy">Лендинг или многостраничный сайт для рекламы: что лучше приводит заявки</a><time datetime="2026-04-23">23 апреля 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/prototip-sajta">Что такое прототип сайта и почему с него стоит начинать</a><time datetime="2026-04-09">9 апреля 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/tehnicheskoe-zadanie-na-sajt">Как написать техническое задание на сайт или приложение, если вы не программист</a><time datetime="2026-03-27">27 марта 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/tilda-wordpress-ili-razrabotka">Tilda, WordPress или своя разработка: что выбрать для сайта компании</a><time datetime="2026-03-12">12 марта 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/kak-uskorit-sait">Медленный сайт теряет клиентов: как проверить скорость и что с ней делать</a><time datetime="2026-03-04">4 марта 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/skolko-stoit-mobilnoe-prilozhenie">Сколько стоит мобильное приложение и как не переплатить</a><time datetime="2026-02-19">19 февраля 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/crm-dlya-malogo-biznesa">CRM для малого бизнеса: зачем нужна и как внедрить без хаоса</a><time datetime="2026-02-10">10 февраля 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/chat-bot-dlya-biznesa">Чат-бот для бизнеса в WhatsApp и Telegram: что умеет и как внедрить</a><time datetime="2026-01-29">29 января 2026</time></li>
+          <li><a href="https://anygroup.kz/publications/skolko-stoit-sait-v-almaty">Сколько стоит сайт в Алматы и как сравнивать предложения студий</a><time datetime="2026-01-20">20 января 2026</time></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="experience">
+      <h2 id="experience">Опыт</h2>
+      <ul class="jobs">
+        <li>
+          <div class="top"><strong>ANYgroup — основатель</strong><span>Алматы</span></div>
+          <p>IT-студия: сайты, мобильные приложения, автоматизация бизнеса, SEO и внедрение ИИ.</p>
+        </li>
+        <li>
+          <div class="top"><strong>Spektr — full-stack разработчик</strong><span>с августа 2023</span></div>
+          <p>Разработка и поддержка веб-платформ на Laravel, Nuxt, Kafka и ClickHouse.</p>
+        </li>
+        <li>
+          <div class="top"><strong>Фриланс — full-stack разработчик</strong><span>февраль — май 2023</span></div>
+          <p>Мобильное приложение для интернет-магазина Skiny на Flutter и Firebase; сайты Standup Asia, FizMat и <a href="https://ivyshop.kz">IVY</a> на Next.js.</p>
+        </li>
+        <li>
+          <div class="top"><strong>SmartLab — full-stack разработчик</strong><span>март — октябрь 2022</span></div>
+          <p>Экономические расчёты и визуализация больших статистических данных. Ускорил ключевой скрипт с нескольких часов до пары минут.</p>
+        </li>
+        <li>
+          <div class="top"><strong>Brandstudio — full-stack разработчик</strong><span>сентябрь 2018 — январь 2022</span></div>
+          <p>Сайт онлайн-страхования транспорта, интеграции с платёжными сервисами, Instagram Graph API и Telegram API.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 id="skills">Технологии</h2>
+      <ul class="tags">
+        <li>PHP</li><li>Laravel</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Vue.js</li><li>Nuxt.js</li><li>Dart</li><li>Flutter</li><li>Tailwind</li><li>PostgreSQL</li><li>MySQL</li><li>ClickHouse</li><li>Elasticsearch</li><li>Redis</li><li>Kafka</li><li>Docker</li><li>Linux</li><li>Nginx</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education">Образование и достижения</h2>
+      <ul class="jobs">
+        <li>
+          <div class="top"><strong>Международный университет информационных технологий</strong><span>2016 — 2020</span></div>
+          <p>Бакалавр компьютерных наук, Алматы.</p>
+        </li>
+        <li>
+          <div class="top"><strong>ACM-ICPC, четвертьфинал — 2 место</strong><span>2019</span></div>
+          <p>Профили по спортивному программированию: <a href="https://codeforces.com/profile/Z2z" rel="me">Codeforces</a>, <a href="https://leetcode.com/sarsenovZ2z/" rel="me">LeetCode</a>, <a href="https://www.hackerrank.com/profile/z2z01" rel="me">HackerRank</a>.</p>
+        </li>
+      </ul>
+    </section>
+
+    <footer>Нурдаулет Сарсенов · <a href="https://anygroup.kz">ANYgroup</a>, Алматы</footer>
+  </main>
 </body>
 </html>
